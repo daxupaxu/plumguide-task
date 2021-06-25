@@ -7,9 +7,12 @@ import MapPointer from '../assets/placeholder.svg';
 
 const PDPTitle = styled.h2`
   text-align: center;
-  font-size: ${({ theme }) => theme.fontSize.headers.md};
+  font-size: ${({ theme }) => theme.fontSize.headers.sm};
   font-weight: 100;
   margin: 2.5rem 0 1.25rem 0;
+  ${({ theme }) => theme.media.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.headers.md};
+  } ;
 `;
 const PDPInfoContainer = styled.div`
   display: flex;

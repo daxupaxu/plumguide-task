@@ -21,8 +21,10 @@ const ChildrenLink = styled.a<ChildrenLinkProps>`
   text-decoration: none;
   padding: 0 0.625rem;
   color: ${({ theme }) => theme.colors.black};
-  &.active {
-    border-bottom: 1px solid orange;
+  &.active::after {
+    content: '';
+    display: flex;
+    border-bottom: 2px solid orange;
   }
 `;
 

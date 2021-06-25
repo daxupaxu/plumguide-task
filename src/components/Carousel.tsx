@@ -17,9 +17,7 @@ const PreviousButton = styled.img`
   z-index: 2;
   top: 50%;
   padding: 1.25rem;
-  ${({ theme }) => theme.media.tablet} {
-    transform: rotate(180deg);
-  } ;
+  transform: rotate(180deg);
 `;
 const RightContainer = styled.div`
   display: flex;

@@ -28,6 +28,7 @@ const BookingDetailHeader = styled.span`
 `;
 const BookingDetailContent = styled.span`
   color: ${({ theme }) => theme.colors.black};
+  font-size: 1.25rem;
 `;
 const BookingButton = styled.button`
   border: 0;

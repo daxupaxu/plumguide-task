@@ -29,14 +29,6 @@ const StyledBurger = styled.div<Props>`
       transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
-
-  /* ${({ theme }) => theme.media.tablet} {
-    height: 2rem;
-    width: 3rem;
-    div {
-      width: 2rem;
-    }
-  } */
 `;
 
 const BurgerMenu = () => {
