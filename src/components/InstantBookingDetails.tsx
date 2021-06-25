@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { calculatePriceForTotalNights } from '../utils/calculatePriceForTotalNights';
 
 const Container = styled.section`
   display: flex;
@@ -43,29 +44,48 @@ const BookingButton = styled.button`
     }
   } ;
 `;
+type BookingDetails = {
+  rentFrame: string;
+  guestsCount: number;
+  pricePerNight: number;
+  nightsCount: number;
+};
 
-const BookingDetails = () => {
+type Props = {
+  bookingDetails: BookingDetails;
+};
+
+const InstantBookingDetails = ({ bookingDetails }: Props) => {
+  const { rentFrame, guestsCount, pricePerNight, nightsCount } = bookingDetails;
   return (
     <Container>
       <BookingDetailBox>
         <BookingDetailHeader>From / To</BookingDetailHeader>
-        <BookingDetailContent>3 Jan 2020 - 28 Feb 2020</BookingDetailContent>
+        <BookingDetailContent>{rentFrame} </BookingDetailContent>
       </BookingDetailBox>
       <BookingDetailBox>
         <BookingDetailHeader>For</BookingDetailHeader>
-        <BookingDetailContent>2 Guests</BookingDetailContent>
+        <BookingDetailContent>
+          {guestsCount === 1 ? `${guestsCount} Guest` : `${guestsCount} Guests`}
+        </BookingDetailContent>
       </BookingDetailBox>
       <BookingDetailBox>
         <BookingDetailHeader>£ Per night</BookingDetailHeader>
-        <BookingDetailContent>345</BookingDetailContent>
+        <BookingDetailContent>{pricePerNight}</BookingDetailContent>
       </BookingDetailBox>
       <BookingDetailBox>
-        <BookingDetailHeader>£ Total for 54 nights</BookingDetailHeader>
-        <BookingDetailContent>18,630</BookingDetailContent>
+        <BookingDetailHeader>
+          £ Total for{' '}
+          {nightsCount === 1 ? `${nightsCount} night` : `${nightsCount} nights`}
+        </BookingDetailHeader>
+        <BookingDetailContent>
+          {/* Obviosuly it's mocked here with the specific days count*/}
+          {calculatePriceForTotalNights(pricePerNight, nightsCount)}
+        </BookingDetailContent>
       </BookingDetailBox>
       <BookingButton>INSTANT BOOKING</BookingButton>
     </Container>
   );
 };
 
-export default BookingDetails;
+export default InstantBookingDetails;

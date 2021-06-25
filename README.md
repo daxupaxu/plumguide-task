@@ -4,7 +4,9 @@
 
 [Live Preview](https://plumguide-task.vercel.app/)
 
-[Core Web Vitals](https://ibb.co/vP79Tqr)
+## Hosted screen from page insights
+
+[PageSpeed Insights](https://ibb.co/vP79Tqr)
 
 ## Task was to recreate the given design, by using react
 

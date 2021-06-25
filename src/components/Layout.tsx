@@ -19,7 +19,7 @@ type Props = {
 const Layout = ({ children, title }: Props) => (
   <ThemeProvider theme={theme}>
     <Head>
-      <title>{title || 'Plum Guide'}</title>
+      <title>{`${title} | Plum Guide` || 'Plum Guide'}</title>
     </Head>
     <Header />
     <GlobalStyle />

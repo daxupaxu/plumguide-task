@@ -7,10 +7,11 @@ import Loupe from '../assets/loupe.svg';
 const Navigation = styled.nav`
   display: flex;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  justify-content: space-evenly;
   ${({ theme }) => theme.media.tablet} {
+    justify-content: space-between;
     position: relative;
     flex-flow: row;
-    justify-content: space-between;
   } ;
 `;
 
@@ -18,7 +19,7 @@ const LeftNavigation = styled.div`
   display: none;
   ${({ theme }) => theme.media.tablet} {
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     display: flex;
     padding: 0 1.25rem;
   }

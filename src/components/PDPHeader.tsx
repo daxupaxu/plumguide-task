@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Train from '../assets/train.svg';
 import Stairs from '../assets/stairs.svg';
 import MapPointer from '../assets/placeholder.svg';
+import { Product } from './PDP';
 
 const PDPTitle = styled.h2`
   text-align: center;
@@ -51,31 +52,38 @@ const PDPLocationContent = styled.span`
   margin: 0.6225rem;
 `;
 
-const PDPHeader = () => {
+type Props = {
+  productDetails: Product;
+};
+
+const PDPHeader = ({ productDetails }: Props) => {
+  const {
+    title,
+    placeDetails: { capacity, rooms, bathrooms, specials, surrounding },
+    location: { city, approach, accesibility },
+  } = productDetails;
   return (
     <>
-      <PDPTitle>Monsieur Didot</PDPTitle>
+      <PDPTitle>{title}</PDPTitle>
       <PDPInfoContainer>
-        <PDPInfoItem>4 people</PDPInfoItem>
-        <PDPInfoItem>2 bedrooms</PDPInfoItem>
-        <PDPInfoItem>2 bathrooms</PDPInfoItem>
-        <PDPInfoItem>Private terrase</PDPInfoItem>
-        <PDPInfoItem>Peaceful</PDPInfoItem>
+        <PDPInfoItem>{capacity}</PDPInfoItem>
+        <PDPInfoItem>{rooms}</PDPInfoItem>
+        <PDPInfoItem>{bathrooms}</PDPInfoItem>
+        <PDPInfoItem>{specials}</PDPInfoItem>
+        <PDPInfoItem>{surrounding}</PDPInfoItem>
       </PDPInfoContainer>
       <PDPLocationContainer>
         <PDPLocationItem>
           <img width="24" height="24" src={MapPointer.src} alt="placeholder" />
-          <PDPLocationContent>Notthing Hill, London</PDPLocationContent>
+          <PDPLocationContent>{city}</PDPLocationContent>
         </PDPLocationItem>
         <PDPLocationItem>
           <img width="24" height="24" src={Train.src} alt="placeholder" />
-          <PDPLocationContent>
-            Walk 6 mins (Westbourne Park Station)
-          </PDPLocationContent>
+          <PDPLocationContent>{approach}</PDPLocationContent>
         </PDPLocationItem>
         <PDPLocationItem>
           <img width="24" height="24" src={Stairs.src} alt="placeholder" />
-          <PDPLocationContent>Stairs</PDPLocationContent>
+          <PDPLocationContent>{accesibility}</PDPLocationContent>
         </PDPLocationItem>
       </PDPLocationContainer>
     </>

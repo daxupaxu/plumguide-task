@@ -16,15 +16,33 @@ const Page = styled.section`
   align-items: center;
 `;
 
-type Props = {
-  images: string[];
+export type Product = {
+  title: string;
+  placeDetails: {
+    capacity: string;
+    rooms: string;
+    bathrooms: string;
+    specials: string;
+    surrounding: string;
+  };
+  location: {
+    city: string;
+    approach: string;
+    accesibility: string;
+  };
 };
 
-const PDP = ({ images }: Props) => {
+type Props = {
+  images: string[];
+  product: Product;
+};
+
+const PDP = ({ images, product }: Props) => {
   return (
     <Page>
-      <PDPHeader />
+      <PDPHeader productDetails={product} />
       <Carousel images={images} />
+      {/* here would come descriptions of the product rentals, location etc. */}
     </Page>
   );
 };

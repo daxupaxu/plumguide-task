@@ -47,6 +47,7 @@ const ImagesCount = styled.div`
 `;
 
 const Carousel = ({ images }: Props) => {
+  // Only front-end side carousel, which means, users will always land with state 1 ( on the first image on the website)
   const [currentImage, setCurrentImage] = useState(1);
   const popularImages = getPopularImages(images, 30);
   return (
