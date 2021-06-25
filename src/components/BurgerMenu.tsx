@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Navbar from './Navbar';
 
 type Props = {
   open?: boolean;
