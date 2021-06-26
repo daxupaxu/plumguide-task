@@ -11,7 +11,6 @@ const StyledBurger = styled.div<Props>`
   flex-flow: column;
   width: 2rem;
   height: 2.5rem;
-  padding: 0.625rem;
   div {
     height: 1px;
     background-color: ${({ theme }) => theme.colors.black};

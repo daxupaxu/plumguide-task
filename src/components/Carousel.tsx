@@ -13,10 +13,10 @@ const CarouselContainer = styled.div`
   max-width: 90%;
 `;
 const PreviousButton = styled.img`
-  position: absolute;
   z-index: 2;
+  position: absolute;
   top: 50%;
-  padding: 1.25rem;
+  padding: 0.625rem;
   transform: rotate(180deg);
 `;
 const RightContainer = styled.div`
@@ -31,7 +31,6 @@ const RightContainer = styled.div`
 const NextButton = styled.img`
   top: 50%;
   right: 0;
-  z-index: 2;
 `;
 
 const ImagesCount = styled.div`

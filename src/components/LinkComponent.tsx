@@ -12,20 +12,19 @@ type ChildrenLinkProps = {
 
 const LinkContainer = styled.div`
   display: flex;
-  flex-flow: column;
   justify-content: center;
-  padding: 0.625rem;
 `;
 
 const ChildrenLink = styled.a<ChildrenLinkProps>`
   text-decoration: none;
-  padding: 0 0.625rem;
   color: ${({ theme }) => theme.colors.black};
   transition: all 0.2s ease-in-out;
-  &.active::after {
+  &.active::before {
     content: '';
-    display: flex;
-    border-bottom: 2px solid orange;
+    position: absolute;
+    bottom: 0;
+    min-width: 5%;
+    border-bottom: 2px solid #fdbb30;
   }
   &:hover {
     color: #ffa600;

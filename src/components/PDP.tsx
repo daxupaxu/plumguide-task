@@ -4,11 +4,10 @@ import Carousel from './Carousel';
 import PDPHeader from './PDPHeader';
 
 const Page = styled.section`
-  background: rgb(249, 249, 249);
   background: linear-gradient(
     0deg,
-    rgba(249, 249, 249, 1) 0%,
-    rgba(246, 221, 209, 1) 11%,
+    rgba(249, 249, 249, 1) 15%,
+    rgba(246, 221, 209, 1) 15%,
     rgba(246, 221, 209, 1) 100%
   );
   display: flex;

@@ -12,10 +12,10 @@ const Navigation = styled.nav`
     justify-content: space-between;
     position: relative;
     flex-flow: row;
-  } ;
+  }
 `;
 
-const LeftNavigation = styled.div`
+const PrimaryNavigation = styled.div`
   display: none;
   ${({ theme }) => theme.media.tablet} {
     align-items: center;
@@ -24,31 +24,32 @@ const LeftNavigation = styled.div`
     padding: 0 1.25rem;
   }
 `;
+
 const BurgerContainer = styled.div`
   display: flex;
   align-items: center;
+  padding: 0.625rem;
   border-right: 1px solid ${({ theme }) => theme.colors.border};
-`;
-const PageTitle = styled.h1`
-  font-weight: 100;
-  margin: 0.625rem;
-  text-align: center;
-`;
-const RightNavigation = styled.div`
-  display: none;
   ${({ theme }) => theme.media.tablet} {
-    display: flex;
-    align-items: center;
     padding: 0 1.25rem;
-  }
+  } ;
 `;
-const SearchIconContainer = styled.div`
-  display: flex;
-  align-items: center;
+
+const SearchIconContainer = styled(BurgerContainer)`
+  border-right: 0;
   border-left: 1px solid ${({ theme }) => theme.colors.border};
 `;
+
+const PageTitle = styled.h1`
+  text-align: center;
+  flex-grow: 2;
+  font-weight: 100;
+  margin: 0.625rem;
+  align-self: center;
+`;
+
 const NavigationItem = styled.span`
-  padding: 0 0.625rem;
+  padding: 2rem;
 `;
 
 const Header = () => (
@@ -58,26 +59,26 @@ const Header = () => (
       <BurgerMenu />
     </BurgerContainer>
     {/* Left nav */}
-    <LeftNavigation>
+    <PrimaryNavigation>
       <NavigationItem>
-        <LinkComponent href="/homes">HOMES</LinkComponent>
+        <LinkComponent href="/">HOMES</LinkComponent>
       </NavigationItem>
       <NavigationItem>
         <LinkComponent href="/hosts">HOSTS</LinkComponent>
       </NavigationItem>
-    </LeftNavigation>
+    </PrimaryNavigation>
     <PageTitle>
-      <LinkComponent href="/">PLUM GUIDE</LinkComponent>
+      <LinkComponent href="/homes">PLUM GUIDE</LinkComponent>
     </PageTitle>
     {/* Right nav */}
-    <RightNavigation>
+    <PrimaryNavigation>
       <LinkComponent href="/support">
         <NavigationItem>Need help?</NavigationItem>
       </LinkComponent>
       <LinkComponent href="/sign-in">
         <NavigationItem>Login</NavigationItem>
       </LinkComponent>
-    </RightNavigation>
+    </PrimaryNavigation>
     {/* Search Icon */}
     <SearchIconContainer>
       <LinkComponent href="/browse">

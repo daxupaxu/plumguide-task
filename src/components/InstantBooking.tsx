@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import styled from 'styled-components';
 import { calculatePriceForTotalNights } from '../utils/calculatePriceForTotalNights';
+import ListArrow from '../assets/arrow-down.svg';
 
 const Container = styled.section`
   display: flex;
@@ -12,10 +14,10 @@ const Container = styled.section`
     align-items: center;
   } ;
 `;
-const BookingDetailBox = styled.div`
+const BookingDetailContainer = styled.div`
   display: flex;
-  padding: 0.625rem;
   flex-flow: column;
+  padding: 0.625rem;
   ${({ theme }) => theme.media.tablet} {
     border-left: 1px solid ${({ theme }) => theme.colors.border};
     &:first-child {
@@ -27,7 +29,9 @@ const BookingDetailBox = styled.div`
 const BookingDetailHeader = styled.span`
   color: gray;
 `;
-const BookingDetailContent = styled.span`
+const BookingDetailContent = styled.div`
+  display: flex;
+  justify-content: space-between;
   color: ${({ theme }) => theme.colors.black};
   font-size: 1.25rem;
 `;
@@ -55,25 +59,39 @@ type Props = {
   bookingDetails: BookingDetails;
 };
 
-const InstantBookingDetails = ({ bookingDetails }: Props) => {
+const InstantBooking = ({ bookingDetails }: Props) => {
   const { rentFrame, guestsCount, pricePerNight, nightsCount } = bookingDetails;
   return (
     <Container>
-      <BookingDetailBox>
+      <BookingDetailContainer>
         <BookingDetailHeader>From / To</BookingDetailHeader>
-        <BookingDetailContent>{rentFrame} </BookingDetailContent>
-      </BookingDetailBox>
-      <BookingDetailBox>
+        <BookingDetailContent>
+          {rentFrame}
+          <img
+            src={ListArrow.src}
+            alt="extend-list-arrow"
+            width="24"
+            height="24"
+          />
+        </BookingDetailContent>
+      </BookingDetailContainer>
+      <BookingDetailContainer>
         <BookingDetailHeader>For</BookingDetailHeader>
         <BookingDetailContent>
           {guestsCount === 1 ? `${guestsCount} Guest` : `${guestsCount} Guests`}
+          <img
+            src={ListArrow.src}
+            alt="extend-list-arrow"
+            width="24"
+            height="24"
+          />
         </BookingDetailContent>
-      </BookingDetailBox>
-      <BookingDetailBox>
+      </BookingDetailContainer>
+      <BookingDetailContainer>
         <BookingDetailHeader>£ Per night</BookingDetailHeader>
         <BookingDetailContent>{pricePerNight}</BookingDetailContent>
-      </BookingDetailBox>
-      <BookingDetailBox>
+      </BookingDetailContainer>
+      <BookingDetailContainer>
         <BookingDetailHeader>
           £ Total for{' '}
           {nightsCount === 1 ? `${nightsCount} night` : `${nightsCount} nights`}
@@ -82,10 +100,10 @@ const InstantBookingDetails = ({ bookingDetails }: Props) => {
           {/* Obviosuly it's mocked here with the specific days count*/}
           {calculatePriceForTotalNights(pricePerNight, nightsCount)}
         </BookingDetailContent>
-      </BookingDetailBox>
+      </BookingDetailContainer>
       <BookingButton>INSTANT BOOKING</BookingButton>
     </Container>
   );
 };
 
-export default InstantBookingDetails;
+export default InstantBooking;

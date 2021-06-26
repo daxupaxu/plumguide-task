@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import React from 'react';
-import InstantBookingDetails from '../src/components/InstantBookingDetails';
+import InstantBooking from '../src/components/InstantBooking';
 import Layout from '../src/components/Layout';
 import PDP from '../src/components/PDP';
 
@@ -41,7 +41,7 @@ const PDPage = ({ data }: Props) => {
   });
   return (
     <Layout title="Product Page">
-      <InstantBookingDetails bookingDetails={bookingMock} />
+      <InstantBooking bookingDetails={bookingMock} />
       <PDP images={extractedImagePaths} product={productMock} />
     </Layout>
   );
